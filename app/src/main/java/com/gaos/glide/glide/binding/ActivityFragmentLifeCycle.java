@@ -9,6 +9,9 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
 
+/**
+ * @author gaos
+ */
 public class ActivityFragmentLifeCycle implements LifeCycle {
 
     // 容器

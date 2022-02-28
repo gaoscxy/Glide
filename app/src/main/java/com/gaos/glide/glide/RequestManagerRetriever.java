@@ -25,16 +25,10 @@ import java.util.Map;
 
 /**
  * 专门管理RequestManager
+ * @author gaos
  */
 public class RequestManagerRetriever implements Handler.Callback {
-
-//    @VisibleForTesting
     static final String FRAGMENT_TAG = "com.bumptech.glide.manager";
-//
-//    @SuppressWarnings("deprecation")
-//    @VisibleForTesting
-//    final Map<android.app.FragmentManager, RequestManagerFragment> pendingRequestManagerFragments =
-//            new HashMap<>();
 
     @VisibleForTesting
     final Map<FragmentManager, RequestManagerFragment> pendingSupportRequestManagerFragments =
@@ -47,11 +41,9 @@ public class RequestManagerRetriever implements Handler.Callback {
         handler = new Handler(Looper.getMainLooper(), this);
     }
 
-    private static final int ID_REMOVE_FRAGMENT_MANAGER = 1; // android.app Fragmetn 空白
-    private static final int ID_REMOVE_SUPPORT_FRAGMENT_MANAGER = 2; // androidx Fragmetn 空白
+    private static final int ID_REMOVE_SUPPORT_FRAGMENT_MANAGER = 1; // androidx Fragmetn 空白
 
     private volatile RequestManager applicationManager;
-    // 红色区域 Application 作用域
     @NonNull
     private RequestManager getApplicationManager(@NonNull Context context) {
         if (applicationManager == null) {
@@ -121,7 +113,6 @@ public class RequestManagerRetriever implements Handler.Callback {
         if (requestManager == null) { // 【同学们注意：这样做的目的是为了  一个Activity或Fragment 只能有一个 RequestManager】
 
             // 3.1 实例化
-            Glide glide = Glide.get(context);
             requestManager =  RequestManager.getInstance( current.getGlideLifecycle(), context);
 
             // 3.2 设置 Fragment 对应的 RequestManager    空白的Fragment<--->requestManager

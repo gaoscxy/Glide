@@ -10,15 +10,12 @@ import com.gaos.glide.glide.work.ImageViewTarget;
 import java.io.File;
 
 public class RequestBuilder {
-    //就是对类比于Request进行一个封装
     //路径
     // 请求路径
     private String url;
 
     // 上下文
     private Context context;
-    // 占位图片
-    private int resId;
 
     private RequestOptions requestOptions;
 
@@ -75,14 +72,6 @@ public class RequestBuilder {
 
     public void setContext(Context context) {
         this.context = context;
-    }
-
-    public int getResId() {
-        return resId;
-    }
-
-    public void setResId(int resId) {
-        this.resId = resId;
     }
 
     public RequestListener getRequestListener() {

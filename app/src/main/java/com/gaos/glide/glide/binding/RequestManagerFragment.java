@@ -1,11 +1,9 @@
 package com.gaos.glide.glide.binding;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.Fragment;
 
 import com.gaos.glide.glide.RequestManager;
@@ -15,7 +13,6 @@ import com.gaos.glide.glide.RequestManager;
  */
 public class RequestManagerFragment extends Fragment {
 
-    private static final String TAG = "SupportRMFragment";
     private  ActivityFragmentLifeCycle lifecycle = null;
     @Nullable
     private RequestManager requestManager;
@@ -40,17 +37,6 @@ public class RequestManagerFragment extends Fragment {
     @Nullable
     public RequestManager getRequestManager() {
         return requestManager;
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        // this.lifecycle.addListener(requestManager);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
     @Override
